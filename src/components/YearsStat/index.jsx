@@ -2,6 +2,16 @@ import React from 'react';
 import YearStat from 'src/components/YearStat';
 import useActivities from 'src/hooks/useActivities';
 import { INFO_MESSAGE } from 'src/utils/const';
+import { THANKS_MESSAGE } from 'src/utils/const';
+import { FRIST_MEETING_TIME } from 'src/utils/const';
+
+const AquaintanceTimeInfo = () => {
+  const now = new Date();
+  const firstMeeting = new Date(FRIST_MEETING_TIME);
+  const diff = now.getTime() - firstMeeting.getTime();
+  let data =  Math.floor(diff / (24 * 3600 * 1000));
+  return "We have known each other for " + data + " days.";
+};
 
 const YearsStat = ({ year, onClick }) => {
   const { years } = useActivities();
@@ -17,6 +27,10 @@ const YearsStat = ({ year, onClick }) => {
       <section className="pb4" style={{ paddingBottom: '0rem' }}>
         <p style={{ lineHeight: 1.8 }}>
           {INFO_MESSAGE(years.length, year)}
+          <br />
+        </p>
+        <p style={{ lineHeight: 1.8 }}>
+          {THANKS_MESSAGE} {AquaintanceTimeInfo()}
           <br />
         </p>
       </section>

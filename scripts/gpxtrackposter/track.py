@@ -52,7 +52,7 @@ class Track:
             if os.path.getsize(file_name) == 0:
                 raise TrackLoadError("Empty GPX file")
             with open(file_name, "rb") as file:
-                self._load_gpx_data(mod_gpxpy.parse(file))
+                self._load_gpx_data(mod_gpxpy.parse(file), file)
         except Exception as e:
             print(
                 f"Something went wrong when loading GPX. for file {self.file_names[0]}, we just ignore this file and continue"
@@ -139,7 +139,7 @@ class Track:
             "average_speed": self.length / moving_time if moving_time else 0,
         }
 
-    def _load_gpx_data(self, gpx):
+    def _load_gpx_data(self, gpx, file):
         self.start_time, self.end_time = gpx.get_time_bounds()
         # use timestamp as id
         self.run_id = self.__make_run_id(self.start_time)
@@ -154,8 +154,23 @@ class Track:
         polyline_container = []
         heart_rate_list = []
         # determinate type
-        if gpx.tracks[0].type:
+        if gpx.tracks[0].type != None:
             self.type = gpx.tracks[0].type
+        else:
+            # adapt gpx exported from huawei
+            from xml.dom.minidom import parse
+            file.seek(0)
+            dom = parse(file)
+            type = dom.documentElement.getElementsByTagName('type')[0].firstChild.data
+            if type == "户外骑行":
+                self.type = "Ride"
+            elif type == "户外跑步":
+                self.type = "Run"
+            elif type == "户外步行":
+                self.type = "Hike"
+            else:
+                self.type = "Run"
+        
         # determinate source
         if gpx.creator:
             self.source = gpx.creator
@@ -170,7 +185,7 @@ class Track:
         elif gpx.tracks[0].name:
             self.name = gpx.tracks[0].name
         else:
-            self.name = self.type + " from " + self.source
+            self.name = self.type
 
         for t in gpx.tracks:
             for s in t.segments:

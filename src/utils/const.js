@@ -16,9 +16,9 @@ const MAP_LAYER_LIST=['road-label',  'waterway-label',  'natural-line-label',
                      ];
 
 // styling: set to `true` if you want dash-line route
-const USE_DASH_LINE = true;
+const USE_DASH_LINE = false;
 // styling: route line opacity: [0, 1]
-const LINE_OPACITY = 0.4;
+const LINE_OPACITY = 0.8;
 // styling: map height
 const MAP_HEIGHT = 600;
 //set to `false` if you want to hide the road label characters
@@ -28,7 +28,7 @@ const ROAD_LABEL_DISPLAY = true;
 const IS_CHINESE = true;
 const USE_ANIMATION_FOR_GRID = false;
 const CHINESE_INFO_MESSAGE = (yearLength, year) =>
-  `户外运动 ${yearLength} 年 ` + ( year === 'Total' ? '' : `，地图展示的是 ${year} 年的轨迹`);
+  `我用 HUAWEI Watch3 和 Keep 记录自己跑步 ${yearLength} 年了，下面列表展示的是${year}的数据。`;
 
 const ENGLISH_INFO_MESSAGE = (yearLength, year) =>
   `Logged ${yearLength} Years of Outdoor Journey` +  ( year === 'Total' ? '' : `, the map show routes in ${year}`);
@@ -38,6 +38,8 @@ const CHINESE_LOCATION_INFO_MESSAGE_FIRST =
   '我去过了一些地方，希望随着时间推移，地图点亮的地方越来越多';
 const CHINESE_LOCATION_INFO_MESSAGE_SECOND = '不要停下来，不要停下探索的脚步';
 
+const FRIST_MEETING_TIME = '2023-01-07';
+const THANKS_MESSAGE = "Thanks for someone's inspiration."
 const INFO_MESSAGE = IS_CHINESE ? CHINESE_INFO_MESSAGE : ENGLISH_INFO_MESSAGE;
 const FULL_MARATHON_RUN_TITLE = IS_CHINESE ? '全程马拉松' : 'Full Marathon';
 const HALF_MARATHON_RUN_TITLE = IS_CHINESE ? '半程马拉松' : 'Half Marathon';
@@ -72,6 +74,8 @@ const RUN_TITLES = {
 };
 
 export {
+  FRIST_MEETING_TIME,
+  THANKS_MESSAGE,
   CHINESE_LOCATION_INFO_MESSAGE_FIRST,
   CHINESE_LOCATION_INFO_MESSAGE_SECOND,
   MAPBOX_TOKEN,
