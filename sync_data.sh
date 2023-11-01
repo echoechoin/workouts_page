@@ -14,4 +14,4 @@ python3 scripts/gen_svg.py --from-db --title "$title" --type grid --athlete $ath
 yarn build
 
 # sync data to server
-rsync -a -e "ssh -p 22" ./public  root@linxin.info:/root
+# rsync -a -e "ssh -p 22" ./public  root@linxin.info:/root

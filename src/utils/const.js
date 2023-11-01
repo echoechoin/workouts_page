@@ -16,9 +16,9 @@ const MAP_LAYER_LIST=['road-label',  'waterway-label',  'natural-line-label',
                      ];
 
 // styling: set to `true` if you want dash-line route
-const USE_DASH_LINE = false;
+const USE_DASH_LINE = true;
 // styling: route line opacity: [0, 1]
-const LINE_OPACITY = 0.8;
+const LINE_OPACITY = 0.6;
 // styling: map height
 const MAP_HEIGHT = 600;
 //set to `false` if you want to hide the road label characters
@@ -38,7 +38,7 @@ const CHINESE_LOCATION_INFO_MESSAGE_FIRST =
   '我去过了一些地方，希望随着时间推移，地图点亮的地方越来越多';
 const CHINESE_LOCATION_INFO_MESSAGE_SECOND = '不要停下来，不要停下探索的脚步';
 
-const FRIST_MEETING_TIME = '2023-01-07';
+const FRIST_MEETING_TIME = '1998-04-16';
 const THANKS_MESSAGE = "Thanks for someone's inspiration."
 const INFO_MESSAGE = IS_CHINESE ? CHINESE_INFO_MESSAGE : ENGLISH_INFO_MESSAGE;
 const FULL_MARATHON_RUN_TITLE = IS_CHINESE ? '全程马拉松' : 'Full Marathon';

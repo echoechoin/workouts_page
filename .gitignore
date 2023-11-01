@@ -1,11 +1,13 @@
 # Project dependencies
+yarn.lock
+package-lock.json
 .yarn
+.venv
 .cache
 *.pyc
 node_modules
 yarn-error.log
 
-/public
 # Build directory
 /build
 .DS_Store
@@ -19,3 +21,7 @@ _site/
 .idea
 
 config.yaml
+assets/github.svg
+assets/github.svg
+assets/grid.svg
+src/static/activities.json

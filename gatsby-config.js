@@ -1,16 +1,12 @@
 module.exports = {
   pathPrefix: process.env.PATH_PREFIX || '/',
   siteMetadata: {
-    siteTitle: 'Workouts Map',
-    siteUrl: 'https://ben29.xyz',
-    logo: 'https://avatars3.githubusercontent.com/u/6956444?s=460&u=97e1062227c4088db3c987146455245c6fa78441',
-    description: 'Personal Workouts Page',
+    siteTitle: 'Echo\'s Workouts Page',
+    siteUrl: 'https://workouts.linxin.info',
+    logo: 'https://workouts.linxin.info/shared/avatar.jpg',
+    description: 'Echo\'s Workouts Page',
     keywords: 'workouts, running, cycling, riding, roadtrip, hiking, swimming',
     navLinks: [
-      {
-        name: 'Blog',
-        url: 'https://ben29.xyz',
-      },
       {
         name: 'About',
         url: 'https://github.com/ben-29/workouts_page/blob/master/README-CN.md',
