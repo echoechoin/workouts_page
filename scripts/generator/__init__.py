@@ -10,10 +10,20 @@ from sqlalchemy import func
 from .db import Activity, init_db, update_or_create_activity
 
 
+def update_or_create_activity_multi(session, run_activity):
+        created = update_or_create_activity(session[0], run_activity[0])
+        if created:
+            sys.stdout.write("+")
+        else:
+            sys.stdout.write(".")
+        sys.stdout.flush()
+        session[0].commit()
+
 class Generator:
     def __init__(self, db_path):
         self.client = stravalib.Client()
         self.session = init_db(db_path)
+        self.db_path = db_path
 
         self.client_id = ""
         self.client_secret = ""
@@ -70,13 +80,30 @@ class Generator:
         if not tracks:
             print("No tracks found.")
             return
+
+        from multiprocessing.dummy import Manager, Process
+        manager = Manager()
+
+        plist = []
+        i = 0
         for t in tracks:
-            created = update_or_create_activity(self.session, t.to_namedtuple())
-            if created:
-                sys.stdout.write("+")
-            else:
-                sys.stdout.write(".")
-            sys.stdout.flush()
+            # created = update_or_create_activity(self.session, t.to_namedtuple())
+            # if created:
+            #     sys.stdout.write("+")
+            # else:
+            #     sys.stdout.write(".")
+            # sys.stdout.flush()
+
+            session = init_db(self.db_path)
+            shared_session = manager.list([session])
+            shared_activity = manager.list([t.to_namedtuple()])
+            p = Process(target=update_or_create_activity_multi, args=(shared_session, shared_activity))
+            plist.append(p)
+
+        for p in plist:
+            p.start()
+        for p in plist:
+            p.join()
 
         self.session.commit()
 
