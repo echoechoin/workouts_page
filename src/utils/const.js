@@ -27,8 +27,8 @@ const ROAD_LABEL_DISPLAY = true;
 // IF you outside China please make sure IS_CHINESE = false
 const IS_CHINESE = true;
 const USE_ANIMATION_FOR_GRID = false;
-const CHINESE_INFO_MESSAGE = (yearLength, year) =>
-  `我用 HUAWEI Watch3 和 Keep 记录自己跑步 ${yearLength} 年了，下面列表展示的是${year}的数据。`;
+const CHINESE_INFO_MESSAGE = (yearLength, year) => `Have fun!`
+  // `我用 HUAWEI Watch3 和 Keep 记录自己跑步 ${yearLength} 年了，下面列表展示的是${year}的数据。`;
 
 const ENGLISH_INFO_MESSAGE = (yearLength, year) =>
   `Logged ${yearLength} Years of Outdoor Journey` +  ( year === 'Total' ? '' : `, the map show routes in ${year}`);

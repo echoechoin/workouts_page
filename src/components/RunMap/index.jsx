@@ -16,6 +16,8 @@ import {
 } from 'src/utils/const';
 import { geoJsonForMap } from 'src/utils/utils';
 import RunMarker from './RunMaker';
+import { Marker } from 'react-map-gl';
+
 import RunMapButtons from './RunMapButtons';
 import styles from './style.module.scss';
 
@@ -130,6 +132,9 @@ const RunMap = ({
         />
       )}
       <span className={styles.runTitle}>{title}</span>
+      <Marker latitude={37.7577} longitude={-122.4376}>
+        <img src="./src/images/favicon.png" alt="Marker" />
+      </Marker>
     </ReactMapGL>
   );
 };
