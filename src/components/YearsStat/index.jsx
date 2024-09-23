@@ -10,7 +10,7 @@ const AquaintanceTimeInfo = () => {
   const firstMeeting = new Date(FRIST_MEETING_TIME);
   const diff = now.getTime() - firstMeeting.getTime();
   let data =  Math.floor(diff / (24 * 3600 * 1000));
-  return "We have known each other for " + data + " days.";
+  return data + " days.";
 };
 
 const YearsStat = ({ year, onClick }) => {
@@ -30,7 +30,7 @@ const YearsStat = ({ year, onClick }) => {
           <br />
         </p>
         <p style={{ lineHeight: 1.8 }}>
-          {THANKS_MESSAGE} {AquaintanceTimeInfo()}
+          {AquaintanceTimeInfo()}
           <br />
         </p>
       </section>
