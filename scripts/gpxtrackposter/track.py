@@ -162,14 +162,17 @@ class Track:
             file.seek(0)
             dom = parse(file)
             type = dom.documentElement.getElementsByTagName('type')[0].firstChild.data
-            if type == "户外骑行":
-                self.type = "Ride"
-            elif type == "户外跑步":
-                self.type = "Run"
-            elif type == "户外步行":
-                self.type = "Hike"
-            else:
-                self.type = "Run"
+            self.type = type
+        if "户外骑行" in self.type:
+            self.type = "Ride"
+        elif "户外跑步" in self.type:
+            self.type = "Run"
+        elif "户外步行" in self.type:
+            self.type = "Hike"
+        else:
+            self.type = "Other"
+
+        print("===============================", self.type)
         
         # determinate source
         if gpx.creator:
