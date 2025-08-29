@@ -12,19 +12,15 @@ const RunTable = ({
   setRunIndex,
 }) => {
   const [sortFuncInfo, setSortFuncInfo] = useState('');
-  // TODO refactor?
+  // Sorting functions
   const sortTypeFunc = (a, b) =>
-    sortFuncInfo === 'Type' ? a.type > b.type ? 1:-1 : b.type < a.type ? -1:1;
+    sortFuncInfo === 'Type' ? (a.type > b.type ? 1 : -1) : (b.type < a.type ? -1 : 1);
   const sortKMFunc = (a, b) =>
     sortFuncInfo === 'KM' ? a.distance - b.distance : b.distance - a.distance;
-  const sortPaceFunc = (a, b) =>
-    sortFuncInfo === 'Pace'
-      ? a.average_speed - b.average_speed
-      : b.average_speed - a.average_speed;
-  const sortBPMFunc = (a, b) =>
-    sortFuncInfo === 'BPM'
-      ? a.average_heartrate - b.average_heartrate
-      : b.average_heartrate - a.average_heartrate;
+  const sortSpeedFunc = (a, b) =>
+    sortFuncInfo === 'Speed'
+      ? a.average_speed * 3.6 - b.average_speed * 3.6
+      : b.average_speed * 3.6 - a.average_speed * 3.6;
   const sortRunTimeFunc = (a, b) => {
     if (Number.isNaN(a.distance) || Number.isNaN(b.distance)
       || Number.isNaN(a.average_speed) || Number.isNaN(b.average_speed)) {
@@ -45,8 +41,7 @@ const RunTable = ({
   const sortFuncMap = new Map([
     ['Type', sortTypeFunc],
     ['KM', sortKMFunc],
-    ['Pace', sortPaceFunc],
-    ['BPM', sortBPMFunc],
+    ['Speed(KM/H)', sortSpeedFunc],
     ['Time', sortRunTimeFunc],
     ['Date', sortDateFuncClick],
   ]);

@@ -25,7 +25,7 @@ import {
 const Index = () => {
   const { siteTitle } = useSiteMetadata();
   const { activities, thisYear } = useActivities();
-  const [year, setYear] = useState(thisYear);
+  const [year, setYear] = useState('Total');
   const [runIndex, setRunIndex] = useState(-1);
   const [runs, setActivity] = useState(
     filterAndSortRuns(activities, year, filterYearRuns, sortDateFunc)
@@ -196,18 +196,14 @@ const Index = () => {
             changeYear={changeYear}
             thisYear={year}
           />
-          {year === 'Total' ? (
-            <SVGStat />
-          ) : (
-            <RunTable
-              runs={runs}
-              year={year}
-              locateActivity={locateActivity}
-              setActivity={setActivity}
-              runIndex={runIndex}
-              setRunIndex={setRunIndex}
-            />
-          )}
+          <RunTable
+            runs={runs}
+            year={year}
+            locateActivity={locateActivity}
+            setActivity={setActivity}
+            runIndex={runIndex}
+            setRunIndex={setRunIndex}
+          />
         </div>
       </div>
       {/* Enable Audiences in Vercel Analytics: https://vercel.com/docs/concepts/analytics/audiences/quickstart */}

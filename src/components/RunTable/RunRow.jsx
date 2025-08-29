@@ -9,6 +9,9 @@ const RunRow = ({ runs, run, locateActivity, runIndex, setRunIndex }) => {
 
   const paceParts = pace ? formatPace(pace) : null;
 
+  // 取小数点后两位
+  const speed = (run.average_speed * 3.6).toFixed(2);
+
   const heartRate = run.average_heartrate;
 
   const type = run.type;
@@ -38,8 +41,7 @@ const RunRow = ({ runs, run, locateActivity, runIndex, setRunIndex }) => {
       <td>{run.name}</td>
       <td>{type}</td>
       <td>{distance}</td>
-      {pace && <td>{paceParts}</td>}
-      <td>{heartRate && heartRate.toFixed(0)}</td>
+      <td>{speed}</td>
       <td>{runTime}</td>
       <td className={styles.runDate}>{run.start_date_local}</td>
     </tr>
