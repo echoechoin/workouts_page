@@ -29,10 +29,10 @@ const YearsStat = ({ year, onClick }) => {
           {INFO_MESSAGE(years.length, year)}
           <br />
         </p>
-        <p style={{ lineHeight: 1.8 }}>
+        {/* <p style={{ lineHeight: 1.8 }}>
           {THANKS_MESSAGE} {AquaintanceTimeInfo()}
           <br />
-        </p>
+        </p> */}
       </section>
       <hr color="red" />
       {yearsArrayUpdate.map((year) => (

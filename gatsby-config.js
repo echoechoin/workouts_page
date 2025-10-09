@@ -2,8 +2,8 @@ module.exports = {
   pathPrefix: process.env.PATH_PREFIX || '/',
   siteMetadata: {
     siteTitle: 'Echo\'s Workouts Page',
-    siteUrl: 'https://workouts.linxin.info',
-    logo: 'https://workouts.linxin.info/shared/avatar.jpg',
+    siteUrl: 'https://echoecho.in',
+    logo: '',
     description: 'Echo\'s Workouts Page',
     keywords: 'workouts, running, cycling, riding, roadtrip, hiking, swimming',
     navLinks: [

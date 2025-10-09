@@ -18,7 +18,7 @@ const MAP_LAYER_LIST=['road-label',  'waterway-label',  'natural-line-label',
 // styling: set to `true` if you want dash-line route
 const USE_DASH_LINE = true;
 // styling: route line opacity: [0, 1]
-const LINE_OPACITY = 0.6;
+const LINE_OPACITY = 0.5;
 // styling: map height
 const MAP_HEIGHT = 600;
 //set to `false` if you want to hide the road label characters
@@ -28,7 +28,7 @@ const ROAD_LABEL_DISPLAY = true;
 const IS_CHINESE = true;
 const USE_ANIMATION_FOR_GRID = false;
 const CHINESE_INFO_MESSAGE = (yearLength, year) =>
-  `我用 HUAWEI Watch3 和 Keep 记录自己跑步 ${yearLength} 年了，下面列表展示的是${year}的数据。`;
+  `我用华为运动健康记录自己跑步 ${yearLength} 年了，下面列表展示的是${year}的数据。`;
 
 const ENGLISH_INFO_MESSAGE = (yearLength, year) =>
   `Logged ${yearLength} Years of Outdoor Journey` +  ( year === 'Total' ? '' : `, the map show routes in ${year}`);
